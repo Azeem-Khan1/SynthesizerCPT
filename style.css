@@ -1,0 +1,113 @@
+* {
+    background-color: #8d021f;
+}
+body {
+    padding: 0px;
+    margin: 0px;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#sonicsketch {
+    width: 150px;
+    margin: 20px;
+    margin-bottom: 30px;
+}
+.text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(227, 219, 219);
+    text-align: center;
+    margin: 10px;
+}
+/* Style the range input */
+input[type=range] {
+    -webkit-appearance: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 20px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: rgb(244, 191, 191);
+  }
+  
+/* Style the thumb */
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 20%;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+input[type=range]::-webkit-slider-thumb:hover {
+    background-color: #b81010;
+}
+input[type=range]::-webkit-slider-thumb:active {
+    background-color: #b81010;
+}
+#slider-value {
+    margin-top: 40px;
+    font-size: 24px;
+    text-align: center;
+}
+#parentbox {
+    display: flex;
+    justify-content: center;
+}
+#wavetables {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+    height: 70px;
+    justify-content: center;
+    column-gap: 20px;
+}
+.waveIcon {
+    margin-top: 20px;
+    width: 100px;
+    outline: none;
+    border: none;
+    height: 70px;
+    border-radius: 15px;
+    transition-duration: 0.3s;
+    background-color: rgb(169, 27, 27);
+}
+.waveIcon:hover {
+    background-color:rgb(244, 191, 191);
+}
+.waveIcon:focus {
+    background-color:rgb(0, 0, 0);
+}
+.play {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-count: 1;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+.playbutton {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 18pt;
+    border-radius: 10px;
+    height: 70px;
+    width: 125px;
+    outline: none;
+    border: none;
+    background-color: rgb(207, 60, 60);
+    transition-duration: 0.4s;
+}
+.playbutton:hover {
+    background-color: rgb(255, 255, 255);
+}
+  

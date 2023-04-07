@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SonicSketch</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="logo">
+        <img src="assets/logo/sonic-sketch-low-resolution-logo-color-on-transparent-background.png" alt="Logo" id='sonicsketch'>
+    </div>
+    <div id="content">
+        <h1 class="text">Choose a frequency to play<br></h1>
+    </div>
+    <div class="slider">
+        <div id="slider-value" class="text"></div>
+        <input type="range" id="exponential-slider" name="exponential-slider" min="1" max="100" value="30">
+        
+        <script>
+            // Get the input and output elements
+            var slider = document.getElementById("exponential-slider");
+            var output = document.getElementById("slider-value");
+
+            // Define the minimum and maximum values for the slider
+            var min_value = 60;
+            var max_value = 14000;
+
+            // Define the minimum and maximum slider values
+            var min_slider_value = 1;
+            var max_slider_value = 100;
+
+            // Define the exponential base for the slider
+            var base = Math.pow(max_value/min_value, 1/(max_slider_value-1));
+
+            // Update the output element with the current slider value
+            function updateOutput() {
+                var slider_value = slider.value;
+                var value = min_value * Math.pow(base, slider_value-1);
+                localStorage.setItem("frequency", value.toFixed(0))
+                output.innerHTML =  value.toFixed(0);
+            }
+
+            // Update the output element when the slider value changes
+            slider.addEventListener("input", updateOutput);
+
+            // Initialize the output element with the initial slider value
+            updateOutput();
+        </script>
+    </div>
+    <h1 class="text" style="margin-top: 50px;">Select a wave shape</h1>
+    <div id="parentbox">
+        <div id="wavetables">
+            <img src="assets/sine.png" alt="sine img" class="waveIcon" onclick="localStorage.setItem('shape', 'sine')">
+            <img src="assets/triangle.png" alt="triangle img" class="waveIcon" onclick="localStorage.setItem('shape', 'triangle')">
+            <img src="assets/sawtooth.png" alt="saw img" class="waveIcon" onclick="localStorage.setItem('shape', 'sawtooth')">
+            <img src="assets/square.png" alt="square img" class="waveIcon" onclick="localStorage.setItem('shape', 'square')">
+        </div>
+    </div>
+    <div class="play">
+        <button class="playbutton" onclick="sound(localStorage.getItem('frequency'), localStorage.getItem('shape'), 1)">Play</button>
+    </div>
+</body>
+</html>
